@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/circle_shadow.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -28,49 +30,52 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: const Color(0xFF292D32),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 200,
-              width: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-
-                gradient: const RadialGradient(
-                    colors:[Colors.black87,Colors.grey,] ,
-                    radius: 20,
-                  focalRadius: 5,
-
+    return Scaffold(
+        backgroundColor: const Color(0xFF303030),
+        body: Container(
+          alignment: Alignment.center, //for cross axis alignment
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            //  crossAxisAlignment: CrossAxisAlignment.start,//doesn't work cause width of col = width of child
+            children: [
+              const CircleShadow(
+                circleSize: 200,
+                icon: Icon(
+                  Icons.ac_unit_sharp,
+                  color: Color(0xFF28D3ED),
+                  size: 40,
                 ),
-                boxShadow: const [
-                  BoxShadow(
-                      color: Color(0xFF2A2D32),
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 20.0,
-                      spreadRadius: 1.0),
-                  BoxShadow(
-                      color: Color(0xFF2A2D32),
-                      offset: Offset(-5.0, -5.0),
-                      blurRadius: 20.0,
-                      spreadRadius: 1.0),
-                ],
               ),
-              child:const Icon( Icons.ac_unit_sharp,color: Colors.green,),
-            )
-          ],
-        ),
-      ),
-    );
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    CircleShadow(
+                      circleSize: 100,
+                      icon: Icon(
+                        Icons.ac_unit_sharp,
+                        color: Color(0xFF28D3ED),
+                        size: 20,
+                      ),
+                    ),
+                    CircleShadow(
+                      circleSize: 100,
+                      icon: Icon(
+                        Icons.ac_unit_sharp,
+                        color: Color(0xFF28D3ED),
+                        size: 20,
+                      ),
+                    ),
+                  ]),
+            ],
+          ),
+        ));
   }
 }
