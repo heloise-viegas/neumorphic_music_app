@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/circle_shadow.dart';
+import 'home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,52 +31,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: const Color(0xFF303030),
-        body: Container(
-          alignment: Alignment.center, //for cross axis alignment
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            //  crossAxisAlignment: CrossAxisAlignment.start,//doesn't work cause width of col = width of child
-            children: [
-              const CircleShadow(
-                circleSize: 200,
-                icon: Icon(
-                  Icons.ac_unit_sharp,
-                  color: Color(0xFF28D3ED),
-                  size: 40,
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    CircleShadow(
-                      circleSize: 100,
-                      icon: Icon(
-                        Icons.ac_unit_sharp,
-                        color: Color(0xFF28D3ED),
-                        size: 20,
-                      ),
-                    ),
-                    CircleShadow(
-                      circleSize: 100,
-                      icon: Icon(
-                        Icons.ac_unit_sharp,
-                        color: Color(0xFF28D3ED),
-                        size: 20,
-                      ),
-                    ),
-                  ]),
-            ],
-          ),
-        ));
-  }
-}
